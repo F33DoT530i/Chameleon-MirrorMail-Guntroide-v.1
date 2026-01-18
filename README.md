@@ -122,6 +122,7 @@ The application will be available at `http://localhost`
 - `npm run test` - Run tests for both workspaces
 - `npm run lint` - Lint all code
 - `npm run lint:fix` - Fix linting issues
+- `npm run package` - Create release package with all files and production builds
 
 ### Client Scripts
 - `npm run dev --workspace=client` - Start Vite dev server
@@ -257,6 +258,29 @@ Chameleon-MirrorMail-Guntroide-v.1/
 ├── package.json              # Root package.json (workspaces)
 └── README.md                 # This file
 ```
+
+## 📦 Creating a Release
+
+To create a release package with all necessary files for deployment:
+
+```bash
+npm run package
+```
+
+This will:
+1. Build the client for production
+2. Package all required files and directories
+3. Create both `.tar.gz` and `.zip` archives in the `releases/` directory
+4. Generate SHA256 checksums for verification
+
+The release package includes:
+- All source code and configuration files
+- Production-built client assets
+- Docker configurations
+- Database initialization scripts
+- Comprehensive deployment documentation
+
+For deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## 🤝 Contributing
 
