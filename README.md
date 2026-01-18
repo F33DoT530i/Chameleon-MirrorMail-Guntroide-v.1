@@ -28,6 +28,8 @@ Personal Private Shadow Email Service - A full-stack application built with mode
 
 ## 🚀 Quick Start
 
+> **📦 For Production Deployment:** If you have downloaded a release package, see the [DEPLOYMENT.md](DEPLOYMENT.md) guide for detailed deployment instructions.
+
 ### Prerequisites
 - Node.js 20.x or higher
 - PostgreSQL 16 or higher (or use Docker)
