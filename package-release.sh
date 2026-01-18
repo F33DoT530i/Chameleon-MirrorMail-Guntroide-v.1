@@ -65,10 +65,10 @@ echo ""
 echo "🧹 Cleaning up development files from release package..."
 
 # Remove node_modules from the package (users should run npm install)
-find "${RELEASE_DIR}" -type d -name "node_modules" -exec rm -rf {} + 2>/dev/null || true
+find "${RELEASE_DIR}" -type d -name "node_modules" -exec rm -rf {} \; 2>/dev/null || true
 
 # Remove build artifacts that shouldn't be in source distribution
-find "${RELEASE_DIR}" -type d -name "coverage" -exec rm -rf {} + 2>/dev/null || true
+find "${RELEASE_DIR}" -type d -name "coverage" -exec rm -rf {} \; 2>/dev/null || true
 find "${RELEASE_DIR}" -type f -name "*.log" -delete 2>/dev/null || true
 
 # Remove package-lock files (can be regenerated)
@@ -77,6 +77,7 @@ find "${RELEASE_DIR}" -type f -name "package-lock.json" -delete 2>/dev/null || t
 # Step 4: Create release archive
 echo ""
 echo "📦 Creating release archive..."
+mkdir -p releases
 cd releases
 tar -czf "${RELEASE_NAME}.tar.gz" "${RELEASE_NAME}/"
 zip -r -q "${RELEASE_NAME}.zip" "${RELEASE_NAME}/"
@@ -85,6 +86,7 @@ cd ..
 # Step 5: Generate checksums
 echo ""
 echo "🔐 Generating checksums..."
+mkdir -p releases
 cd releases
 sha256sum "${RELEASE_NAME}.tar.gz" > "${RELEASE_NAME}.tar.gz.sha256"
 sha256sum "${RELEASE_NAME}.zip" > "${RELEASE_NAME}.zip.sha256"
