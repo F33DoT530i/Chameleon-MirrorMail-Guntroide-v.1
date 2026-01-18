@@ -32,7 +32,9 @@ coverage/
 .DS_Store
 
 # Docker
+# Ignore SQL dumps but not init scripts
 *.sql
+!server/database/*.sql
 
 # Temporary files
 tmp/
