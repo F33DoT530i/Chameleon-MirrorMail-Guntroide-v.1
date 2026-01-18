@@ -17,9 +17,9 @@ export const AuthProvider = ({ children }) => {
       if (!response.ok) throw new Error('Login failed');
 
       const data = await response.json();
-      setUser(data.user);
-      setToken(data.token);
-      localStorage.setItem('token', data.token);
+      setUser(data.data.user);
+      setToken(data.data.token);
+      localStorage.setItem('token', data.data.token);
       return data;
     } catch (error) {
       console.error('Login error:', error);
