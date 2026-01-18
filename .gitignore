@@ -43,3 +43,9 @@ temp/
 
 # System Files
 Thumbs.db
+
+# Release packaging
+releases/chameleon-mirrormail-v*/
+releases/*.tar.gz
+releases/*.zip
+releases/*.sha256
